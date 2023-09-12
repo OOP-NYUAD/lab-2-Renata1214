@@ -11,16 +11,11 @@
 //    c. Function 'deposit' that takes an amount and adds it to the balance.
 //    d. Function 'withdraw' that takes an amount and subtracts it from the balance.
 // 4. A destructor that displays a message like "Account with balance <balance_value> is being destroyed."
+#include "account.h"
+#include <iostream>
 
-#ifndef ACCOUNT_H
-#define ACCOUNT_H
+using namespace std;
 
-class Account {
-private:
-    // Private member variable to store the balance.
-    double balance;
-
-public:
     // Default constructor.
     // Initialize 'balance' to 0.
     // TODO: Implement the default constructor.
@@ -38,31 +33,31 @@ public:
 
     // Getter function to return the current balance.
     // TODO: Implement the 'getBalance' function.
-    double getBalance(){
+    double Account::getBalance(){
         return balance;
     }
 
     // Setter function to set the balance to a new value.
     // TODO: Implement the 'setBalance' function.
-    void setBalance(double newBalance){
+    void Account::setBalance(double newBalance){
         balance=newBalance;
     }
 
     // Function to deposit an amount into the account.
     // TODO: Implement the 'deposit' function.
-    void deposit(double amount)
+    void Account::deposit(double amount)
     {
         balance=balance+amount;
     }
 
     // Function to withdraw an amount from the account.
     // TODO: Implement the 'withdraw' function.
-    void withdraw(double amount){
+    void Account::withdraw(double amount){
         if (balance>=amount){
             balance=balance-amount;
         }
         else{
-            cout<< "The withdraw was unsuccesfull. Your balance is less than the amount you want to withdraw."<< endl;
+            cout<< "Insufficient Funds!"<< endl;
         }
 
     }
@@ -70,9 +65,7 @@ public:
     // Destructor.
     // Display a message indicating the account is being destroyed.
     // TODO: Implement the destructor.
-    ~Account(){
-        cout<<"The object created will be destroyed, and its data will be deleted."<< endl;
+   Account:: ~Account(){
+        cout<<"Account with balance "<< Account::getBalance() << " is being destroyed."<< endl;
     }
-};
-
-#endif // ACCOUNT_H
+    
